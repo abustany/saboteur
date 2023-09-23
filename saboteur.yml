@@ -1,0 +1,40 @@
+# This file configures how Saboteur merges pull requests
+
+auth:
+  # Saboteur can authenticate against GitHub either using a Personal Access
+  # Token, or as a GitHub application.
+  #
+  # # For app installations:
+  #
+  # kind: installation
+  # appId: 123456
+  # installationId: 12345678
+  # keyFile: my-app.2023-09-26.private-key.pem
+  #
+  # # For Personal access tokens:
+  # kind: PAT
+  # username: my-user
+  #
+  # # Define the token direction in the config file:
+  # token: "secretToken"
+  #
+  # # Or ask Saboteur to get it from an environment variable:
+  # tokenFromEnv: GITHUB_TOKEN
+
+repositories:
+  # This is where you tell Saboteur which repositories it should check.
+  #
+  # Define one key per repository, and the merge rules below:
+  #
+  # "abustany/saboteur": # repo owner/name
+  #   rules:
+  #     # All keys on Rule objects are optional, keys that are not specified
+  #     # match all values.
+  #     - targetBranch: refs/heads/main # only check PRs targeting a specific branch
+  #       successfulChecks:             # require some checks to pass before merging
+  #         - name: "Check"             # required, name of the job in the workflow file.
+  #                                     # If the workflow is called via workflow_dispatch,
+  #                                     # name is workflow_name / job_name.
+  #           workflowName: "Tests"     # optional, defined in the "name" key of your workflow
+  #       labels: # require some labels on the PR
+  #         - automerge
