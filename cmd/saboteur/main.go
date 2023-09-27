@@ -7,7 +7,6 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"os"
 	"sort"
 	"strings"
 
@@ -41,11 +40,6 @@ Command line options:
 	}
 
 	httpClient := &http.Client{Transport: httpTransport}
-
-	githubToken := os.Getenv("GITHUB_TOKEN")
-	if githubToken == "" {
-		log.Fatal("GITHUB_TOKEN environment variable is not defined")
-	}
 
 	client := githubv4.NewClient(httpClient)
 
