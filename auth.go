@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"os"
 
-	"github.com/bradleyfalzon/ghinstallation"
+	"github.com/bradleyfalzon/ghinstallation/v2"
 	"golang.org/x/oauth2"
 )
 
