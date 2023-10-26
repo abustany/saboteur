@@ -48,7 +48,7 @@ type PR struct {
 				} `graphql:"parents(first:100)"`
 			}
 		}
-	} `graphql:"commits(last: 1)"`
+	} `graphql:"commits(first: 1)"`
 }
 
 type MergeableMR struct {
