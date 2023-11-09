@@ -66,7 +66,7 @@ func ListMergeableMRs(ctx context.Context, client *githubv4.Client, owner, repo 
 		Repository struct {
 			PullRequests struct {
 				Nodes []PR
-			} `graphql:"pullRequests(states: [OPEN], first: 10)"`
+			} `graphql:"pullRequests(states: [OPEN], first: 20)"`
 		} `graphql:"repository(owner: $owner, name: $name)"`
 	}
 
