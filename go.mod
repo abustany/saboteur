@@ -4,7 +4,7 @@ go 1.20
 
 require (
 	github.com/bradleyfalzon/ghinstallation/v2 v2.9.0
-	github.com/shurcooL/githubv4 v0.0.0-20231126234147-1cffa1f02456
+	github.com/shurcooL/githubv4 v0.0.0-20240120211514-18a1ae0e79dc
 	golang.org/x/oauth2 v0.16.0
 	sigs.k8s.io/yaml v1.4.0
 )
