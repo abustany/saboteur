@@ -34,7 +34,7 @@
           pname = "saboteur";
           version = rev;
           src = pkgs.lib.cleanSource self;
-          vendorHash = "sha256-r+/rd0P3X4TxNSEzAPxjiV4p18E9fe2X5//GaxKDTDI=";
+          vendorHash = "sha256-UaUFrB7oIHT1n1mnseWAw/3ptd0bnmKZUdHe2FVbnUE=";
         };
       }
     );
