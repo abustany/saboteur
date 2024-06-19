@@ -24,6 +24,8 @@
             pkgs.gopls
           ];
 
+	  GOTOOLCHAIN = "local";
+
           shellHook = ''
           export GOPATH="$(realpath .)/.go";
           export PATH="''\${GOPATH}/bin:''\${PATH}"
