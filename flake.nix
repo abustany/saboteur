@@ -2,8 +2,8 @@
   description = "Saboteur";
 
   inputs = {
-    nixpkgs.url      = "github:NixOS/nixpkgs/bec27fabee7ff51a4788840479b1730ed1b64427";
-    flake-utils.url  = "github:numtide/flake-utils/919d646de7be200f3bf08cb76ae1f09402b6f9b4";
+    nixpkgs.url      = "github:NixOS/nixpkgs/nixos-24.05";
+    flake-utils.url  = "github:numtide/flake-utils";
   };
 
   outputs = { self, nixpkgs, flake-utils, ... }:
@@ -30,11 +30,11 @@
           '';
         };
 
-        packages.default = pkgs.buildGo120Module {
+        packages.default = pkgs.buildGo122Module {
           pname = "saboteur";
           version = rev;
           src = pkgs.lib.cleanSource self;
-          vendorHash = "sha256-UaUFrB7oIHT1n1mnseWAw/3ptd0bnmKZUdHe2FVbnUE=";
+          vendorHash = "sha256-P/OuKLlRpvpgx0erNhDgH2d8w+yst+rFzXsrGaEiNKo=";
         };
       }
     );
