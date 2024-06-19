@@ -2,7 +2,7 @@ module github.com/abustany/saboteur
 
 go 1.21
 
-toolchain go1.22.3
+toolchain go1.22.4
 
 require (
 	github.com/bradleyfalzon/ghinstallation/v2 v2.10.0
