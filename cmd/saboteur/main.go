@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
+	"path"
 	"sort"
 	"strings"
 
@@ -34,7 +35,9 @@ Command line options:
 		log.Fatalf("error loading %s: %s", *configFile, err)
 	}
 
-	httpTransport, gitAuthHeaderSource, err := saboteur.SetupAuth(config.Auth)
+	configDir := path.Dir(*configFile)
+
+	httpTransport, gitAuthHeaderSource, err := saboteur.SetupAuth(configDir, config.Auth)
 	if err != nil {
 		log.Fatalf("error setting up authentication: %s", err)
 	}

@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"path"
 
 	"github.com/bradleyfalzon/ghinstallation/v2"
 	"golang.org/x/oauth2"
@@ -14,7 +15,7 @@ import (
 // AuthHeaderSource returns the value of the Authorization header for an HTTP request.
 type AuthHeaderSource func(ctx context.Context) (string, error)
 
-func SetupAuth(auth Auth) (apiTransport http.RoundTripper, gitAuthHeaderSource AuthHeaderSource, err error) {
+func SetupAuth(configDir string, auth Auth) (apiTransport http.RoundTripper, gitAuthHeaderSource AuthHeaderSource, err error) {
 	switch auth := auth.(type) {
 	case *AuthPAT:
 		var token string
@@ -37,7 +38,15 @@ func SetupAuth(auth Auth) (apiTransport http.RoundTripper, gitAuthHeaderSource A
 		}
 		err = nil
 	case *AuthInstallation:
-		transport, err := ghinstallation.NewKeyFromFile(http.DefaultTransport, auth.AppID, auth.InstallationID, auth.KeyFile)
+		var keyFilePath string
+
+		if path.IsAbs(auth.KeyFile) {
+			keyFilePath = auth.KeyFile
+		} else {
+			keyFilePath = path.Join(configDir, auth.KeyFile)
+		}
+
+		transport, err := ghinstallation.NewKeyFromFile(http.DefaultTransport, auth.AppID, auth.InstallationID, keyFilePath)
 		if err != nil {
 			return nil, nil, fmt.Errorf("error initializing app credentials: %w", err)
 		}
