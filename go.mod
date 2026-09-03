@@ -1,13 +1,11 @@
 module github.com/abustany/saboteur
 
-go 1.24.0
-
-toolchain go1.24.9
+go 1.25.0
 
 require (
 	github.com/bradleyfalzon/ghinstallation/v2 v2.17.0
 	github.com/shurcooL/githubv4 v0.0.0-20240727222349-48295856cce7
-	golang.org/x/oauth2 v0.33.0
+	golang.org/x/oauth2 v0.36.0
 	sigs.k8s.io/yaml v1.6.0
 )
 
